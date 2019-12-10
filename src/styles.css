@@ -1,1 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
+.sidebar {
+  width: 320px;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  background: #e8eff7;
+  border-radius: 0px;
+}
+
+.sidebar .logo {
+  border-radius: 0px;
+  height: 95px;
+  width: 319px;
+}
+
+.sidebar .logo img {
+  padding: 5px 58px 0px 40px;
+}
+
+.nav-link {
+  border-radius: 0px;
+  padding: 12px 6px 12px 50px;
+  color: rgb(60, 136, 181);
+  font-family: Roboto-Bold;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  display: block;
+  height: 40px;
+  width: 290px;
+  cursor: pointer;
+}
+
+.nav-pills .nav-link.active {
+  color: rgb(24, 86, 132);
+  background-color: rgb(180, 211, 233);
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 24px 374px 48px;
+  color: rgb(24, 86, 132);
+  font-family: Poppins-Bold;
+  font-size: 32px;
+  font-weight: bold;
+  height: 45px;
+  letter-spacing: 0px;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 117px 20px 20px 375px;
+  width: 100%;
+}
