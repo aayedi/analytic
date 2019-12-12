@@ -32,4 +32,8 @@
       </div>
     </div>
   </div>
+  <p-footer>
+      <p-message *ngIf="jobSuccess" severity="success" text="Job lancé avec succés!"></p-message>
+      <p-message *ngIf="jobFailure" severity="error" text="Erreur lors du lancement du job!"></p-message>
+  </p-footer>
 </p-card>
