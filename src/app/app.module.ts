@@ -20,6 +20,7 @@ import { HeaderComponent } from './header/header.component';
 import { MonitoringComponent } from './monitoring/monitoring.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpService } from './service/http.service';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   ],
   providers: [
     EditorService,
+    HttpService,
     HttpClient
   ],
   bootstrap: [AppComponent]
