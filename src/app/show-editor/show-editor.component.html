@@ -1,0 +1,16 @@
+<span class="title">MONITORING</span>
+<div class="ui-g">
+  <div class="ui-g-12 ui-lg-4">
+    <span class="ui-g-2 ui-lg-3 label">Editeur:</span>
+    <p-dropdown class="ui-g-10 ui-lg-9" [options]="editors" [(ngModel)]="selectedEditor" optionLabel="name"
+      placeholder="Select an editor" [showClear]="true">
+    </p-dropdown>
+  </div>
+  <p-button class="btn-reverse ui-g-offset-5 ui-g-3" type="button" label="All errors" href=""></p-button>
+</div>
+<div *ngIf="selectedEditor" class="ui-g">
+  <p-card *ngFor="let media of selectedEditor.medias" class="media ui-g-12 ui-lg-4">
+    <p-header>{{media.id}}</p-header>
+    {{media.name}}
+  </p-card>
+</div>

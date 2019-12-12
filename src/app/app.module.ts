@@ -21,6 +21,7 @@ import { MonitoringComponent } from './monitoring/monitoring.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpService } from './service/http.service';
+import { ShowEditorComponent } from './show-editor/show-editor.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpService } from './service/http.service';
     EditionComponent,
     SideBarComponent,
     HeaderComponent,
-    MonitoringComponent
+    MonitoringComponent,
+    ShowEditorComponent
   ],
   imports: [
     BrowserModule,

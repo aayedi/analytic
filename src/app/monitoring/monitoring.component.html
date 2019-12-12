@@ -5,7 +5,7 @@
   <a class="ui-g-12 ui-lg-6" href="">Changer le niveau des logs</a>
 </div>
 
-<p-card>
+<p-card class="job">
   <p-header>
     Lancer les jobs dans une « task queue »
   </p-header>
@@ -37,3 +37,5 @@
       <p-message *ngIf="jobFailure" severity="error" text="Erreur lors du lancement du job!"></p-message>
   </p-footer>
 </p-card>
+<br>
+<app-show-editor></app-show-editor>
