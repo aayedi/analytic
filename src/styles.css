@@ -1,3 +1,7 @@
+body {
+  background: #e5efff;
+}
+
 .sidebar {
   width: 320px;
   height: 100%;
@@ -6,8 +10,9 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
-  background: #e8eff7;
+  background: rgb(255, 255, 255);
   border-radius: 0px;
+  box-shadow: 0px 3px 16px 4px rgb(241, 241, 246);
 }
 
 .sidebar .logo {
@@ -23,10 +28,10 @@
 .nav-link {
   border-radius: 0px;
   padding: 12px 6px 12px 50px;
-  color: rgb(60, 136, 181);
-  font-family: Roboto-Bold;
+  color: rgb(91, 109, 139);
+  font-family: Poppins-SemiBold;
+  font-weight: 600;
   font-size: 14px;
-  font-weight: bold;
   letter-spacing: 0px;
   text-transform: uppercase;
   display: block;
@@ -36,27 +41,121 @@
 }
 
 .nav-pills .nav-link.active {
-  color: rgb(24, 86, 132);
-  background-color: rgb(180, 211, 233);
+  color: rgb(67, 130, 242);
+  background: rgb(229, 239, 255);
+  border-radius: 3px 12px 12px 3px;
 }
 
 .header {
   position: absolute;
-  top: 0;
-  left: 0;
   padding: 24px 374px 48px;
-  color: rgb(24, 86, 132);
+  color: rgb(76, 75, 94);
   font-family: Poppins-Bold;
   font-size: 32px;
   font-weight: bold;
   height: 45px;
   letter-spacing: 0px;
+  width: 100%;
 }
 
 .content {
   position: absolute;
-  top: 0;
+  top: 70px;
   left: 0;
-  padding: 117px 20px 20px 375px;
+  padding: 43px 35px 0px 375px;
   width: 100%;
 }
+
+.ui-card {
+  border-radius: 20px;
+  box-shadow: 0px 2px 10px 0px rgb(241, 241, 246);
+  padding: 30px 45px;
+}
+
+.ui-card-header {
+  color: #4382f2;
+  font-family: Poppins-Bold;
+  font-size: 16px;
+  font-weight: bold;
+  height: 23px;
+  letter-spacing: 0px;
+}
+
+.ui-card .ui-card-body {
+  padding: 10px 0px;
+  font-family: Poppins-Medium;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+
+.ui-card-body p-dropdown {
+  padding-left: 0;
+}
+
+.links {
+  padding-bottom: 20px;
+}
+
+.links a {
+  color: #4382f2;;
+  font-family: Poppins-Medium;
+  font-size: 16px;
+  font-weight: 500;
+  height: 23px;
+  letter-spacing: 0px;
+  text-decoration: underline;
+}
+
+.btn-primary .ui-button {
+  margin: 0;
+  color: #ffffff;
+  background-color: #8156dd;
+  border: 1px solid #8156dd;
+  font-size: 14px;
+  text-transform: uppercase;
+  -moz-transition: background-color 0.2s, box-shadow 0.2s;
+  -o-transition: background-color 0.2s, box-shadow 0.2s;
+  -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary .ui-button:enabled:hover {
+  background-color: #564281;
+  color: #ffffff;
+  border-color: #564281;
+}
+
+.btn-primary .ui-button:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0px;
+  -webkit-box-shadow: 0 0 0 0.2em #8a77b3;
+  -moz-box-shadow: 0 0 0 0.2em #8a77b3;
+  box-shadow: 0 0 0 0.2em #8a77b3;
+}
+
+.btn-primary .ui-button:enabled:active {
+  background-color: #612fcc;
+  color: #ffffff;
+  border-color: #612fcc; }
+.btn-primary .ui-button.ui-button-text-only .ui-button-text {
+  padding: 0.429em 1em; }
+.btn-primary .ui-button.ui-button-text-icon-left .ui-button-text {
+  padding: 0.429em 1em 0.429em 2em; }
+.btn-primary .ui-button.ui-button-text-icon-right .ui-button-text {
+  padding: 0.429em 2em 0.429em 1em; }
+.btn-primary .ui-button.ui-button-icon-only {
+  width: 2.357em; }
+  .btn-primary .ui-button.ui-button-icon-only .ui-button-text {
+    padding: 0.429em; }
+.btn-primary .ui-button.ui-button-raised {
+  -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15); }
+.btn-primary .ui-button.ui-button-rounded {
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
+
+

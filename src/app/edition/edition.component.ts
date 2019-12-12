@@ -4,14 +4,13 @@ import { Editor } from '../models/editor';
 import { EditorService } from '../service/editor-service.service';
 import { EditorSelectorItem } from '../models/editor-selector';
 import { Statistic } from '../models/statistic';
-import { Media } from '../models/media';
 
 @Component({
   selector: 'app-edition',
   templateUrl: './edition.component.html',
   styleUrls: ['./edition.component.css']
 })
-export class EditionComponent implements OnInit, OnDestroy {
+export class EditionComponent implements OnInit {
 
   maxVisit = 1000000000;
   selectorEditors: EditorSelectorItem[];
@@ -34,14 +33,9 @@ export class EditionComponent implements OnInit, OnDestroy {
   }
 
   initDataSubscription(): void {
-    // this.editorService.editorsSubject.subscribe(data => this.editors = data);
     this.editors = this.editorService.getEditors();
     this.selectorEditors = this.editorService.getSelectorEditors();
   }
-
-  // applyFilter(range: DateRange) {
-  //   this.data = this.editorService.fetchData(this.selectedEditor, range);
-  // }
 
   applyFilter() {
     if (this.fromDate && this.toDate && this.fromDate.getTime() > this.toDate.getTime()) {
@@ -61,12 +55,6 @@ export class EditionComponent implements OnInit, OnDestroy {
       average += stat.pages;
     }
     return Math.trunc(average / this.data.length);
-  }
-
-  ngOnDestroy(): void {
-    // if (this.editorService.editorsSubject != null) {
-    //   this.editorService.editorsSubject.unsubscribe();
-    // }
   }
 
 }
