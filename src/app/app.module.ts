@@ -18,6 +18,10 @@ import { EditorService } from './service/editor-service.service';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { MonitoringComponent } from './monitoring/monitoring.component';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpService } from './service/http.service';
+import { ShowEditorComponent } from './show-editor/show-editor.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { MonitoringComponent } from './monitoring/monitoring.component';
     EditionComponent,
     SideBarComponent,
     HeaderComponent,
-    MonitoringComponent
+    MonitoringComponent,
+    ShowEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +43,15 @@ import { MonitoringComponent } from './monitoring/monitoring.component';
     CardModule,
     DropdownModule,
     TableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ProgressSpinnerModule,
+    HttpClientModule
   ],
-  providers: [EditorService],
+  providers: [
+    EditorService,
+    HttpService,
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

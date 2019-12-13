@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Editor } from '../models/editor';
-// import {Subject} from 'rxjs';
 import { EDITORS } from '../static/editors-data';
 import { DATA } from '../static/data';
 import { DateRange } from '../models/date-range';
@@ -8,7 +7,6 @@ import { Statistic } from '../models/statistic';
 import { EditorSelectorItem } from '../models/editor-selector';
 import { MediaSelectorItem } from '../models/media-selector';
 import { Media } from '../models/media';
-import { range } from 'rxjs';
 
 @Injectable()
 export class EditorService {
@@ -16,20 +14,10 @@ export class EditorService {
   private editors: Editor[];
   private selectorEditors: EditorSelectorItem[] = [];
 
-  // editorsSubject: Subject<Editor[]>;
-
-  constructor() {
-    // this.editorsSubject = new Subject<Editor[]>();
-    // this.getEditors();
-  }
-
-  // emitEditorsSubject(): void {
-  //   this.editorsSubject.next(this.editors);
-  // }
+  constructor() { }
 
   getEditors(): Editor[] {
     this.editors = EDITORS as Editor[];
-    // this.emitEditorsSubject();
     return this.editors;
   }
 

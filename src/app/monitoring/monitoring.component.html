@@ -1,6 +1,41 @@
 <div class="ui-g ui-fluid links">
-  <a class="ui-g-5" href="http://104.155.52.146/ojd/">Liste des fichiers transférés à l'OJD par sftp</a>
-  <a class="ui-g-5" href="https://console.cloud.google.com/home/dashboard?project=certification-ojd">Console Google Cloud Project (certification-ojd)</a>
-  <a class="ui-g-5" href="https://ssh.cloud.google.com/projects/certification-ojd/zones/europe-west1-b/instances/ojd-sftp?authuser=0&amp;hl=en_US&amp;projectNumber=758988767458">Connexion ssh à la VM</a>
-  <a class="ui-g-5" href="">Changer le niveau des logs</a>
+  <a class="ui-g-12 ui-lg-6" href="http://104.155.52.146/ojd/">Liste des fichiers transférés à l'OJD par sftp</a>
+  <a class="ui-g-12 ui-lg-6" href="https://console.cloud.google.com/home/dashboard?project=certification-ojd">Console Google Cloud Project</a>
+  <a class="ui-g-12 ui-lg-6" href="https://ssh.cloud.google.com/projects/certification-ojd/zones/europe-west1-b/instances/acpm-sftp?authuser=0&amp;hl=en_US&amp;projectNumber=758988767458">Connexion ssh à la VM</a>
+  <a class="ui-g-12 ui-lg-6" href="">Changer le niveau des logs</a>
 </div>
+
+<p-card class="job">
+  <p-header>
+    Lancer les jobs dans une « task queue »
+  </p-header>
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-lg-6 ui-g-nopad">
+      <span>Sélectionner l'éditeur</span>
+      <div class="ui-g">
+        <p-dropdown class="ui-g-8 ui-lg-6" [options]="editors" [(ngModel)]="selectedEditor" optionLabel="name"
+          placeholder="Select an editor" [showClear]="true">
+        </p-dropdown>
+        <p-button class="btn-primary ui-g-4 ui-lg-5" type="button" label="lancer le job" [disabled]="!selectedEditor" (onClick)="runEditorJob()"></p-button>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-lg-6 ui-g-nopad">
+      <span>Sélectionner le media</span>
+      <div class="ui-g">
+        <p-dropdown class="ui-g-8 ui-lg-7" [options]="editorSelectorItems" [(ngModel)]="selectedMedia" name="selectedEditor"
+          placeholder="Select a media" [group]="true" showClear="true">
+          <ng-template let-media pTemplate="item">
+            {{media.value.id}}.{{media.label}}
+          </ng-template>
+        </p-dropdown>
+        <p-button class="btn-primary ui-g-4 ui-lg-5" type="button" label="lancer le job" [disabled]="!selectedMedia" (onClick)="runMediaJob()"></p-button>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+      <p-message *ngIf="jobSuccess" severity="success" text="Job lancé avec succés!"></p-message>
+      <p-message *ngIf="jobFailure" severity="error" text="Erreur lors du lancement du job!"></p-message>
+  </p-footer>
+</p-card>
+<br>
+<app-show-editor></app-show-editor>

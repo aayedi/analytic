@@ -1,19 +1,45 @@
+:root {
+  --default-background: #e5efff;
+  --white-shadow: rgb(241, 241, 246);
+  --nav-link-color: rgb(91, 109, 139);
+  --nav-link-color-active: rgb(67, 130, 242);
+  --nav-link-background-active: rgb(229, 239, 255);
+  --header: rgb(76, 75, 94);
+  --links-color: #4382f2;
+  --primary: #8156dd;
+  --primary-hover: #564281;
+  --primary-focus: #8a77b3;
+  --reverse: #5b6d8b;
+  --reverse-hover: #717e94;
+  --reverse-focus: #5b6d8b;
+
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: var(--default-background);
+}
+
 .sidebar {
-  width: 320px;
+  width: 20rem;
   height: 100%;
   position: absolute;
   z-index: 1;
   top: 0;
   left: 0;
   overflow-x: hidden;
-  background: #e8eff7;
+  background: white;
   border-radius: 0px;
+  box-shadow: 0px 3px 16px 4px var(--white-shadow);
 }
 
 .sidebar .logo {
   border-radius: 0px;
-  height: 95px;
-  width: 319px;
+  height: 6rem;
+  width: 20rem;
 }
 
 .sidebar .logo img {
@@ -23,40 +49,165 @@
 .nav-link {
   border-radius: 0px;
   padding: 12px 6px 12px 50px;
-  color: rgb(60, 136, 181);
-  font-family: Roboto-Bold;
-  font-size: 14px;
-  font-weight: bold;
+  color: var(--nav-link-color);
+  font-family: Poppins-SemiBold;
+  font-weight: 600;
+  font-size: 0.875rem;
   letter-spacing: 0px;
   text-transform: uppercase;
   display: block;
-  height: 40px;
-  width: 290px;
+  width: 18rem;
   cursor: pointer;
 }
 
 .nav-pills .nav-link.active {
-  color: rgb(24, 86, 132);
-  background-color: rgb(180, 211, 233);
+  color: var(--nav-link-color-active);
+  background: var(--nav-link-background-active);
+  border-radius: 3px 12px 12px 3px;
 }
 
 .header {
   position: absolute;
-  top: 0;
-  left: 0;
   padding: 24px 374px 48px;
-  color: rgb(24, 86, 132);
+  color: var(--header);
   font-family: Poppins-Bold;
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: bold;
-  height: 45px;
   letter-spacing: 0px;
 }
 
 .content {
   position: absolute;
-  top: 0;
+  top: 4rem;
   left: 0;
-  padding: 117px 20px 20px 375px;
+  padding: 43px 35px 0px 375px;
   width: 100%;
+}
+
+.media .ui-card {
+  color: white;
+  background: var(--nav-link-color-active);
+  border-radius: 10px;
+}
+
+.media .ui-card-body {
+  padding-top: 0;
+  font-family: Poppins-SemiBold;
+  font-weight: 600;
+  letter-spacing: 0px;
+  text-align: center;
+  height: 50%;
+}
+
+.media .ui-card-header {
+  padding: 9px 0px 0px 14px;
+  color: white;
+  height: 50%;
+}
+
+.job .ui-card {
+  border-radius: 20px;
+  box-shadow: 0px 2px 10px 0px var(--white-shadow);
+  padding: 30px 45px;
+}
+
+.job .ui-card-header {
+  color: var(--links-color);
+  font-family: Poppins-Bold;
+  font-weight: bold;
+  height: 1.5rem;
+  letter-spacing: 0px;
+}
+
+.job .ui-card .ui-card-body {
+  padding: 10px 0px;
+  font-family: Poppins-Medium;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+
+.job .ui-card-body p-dropdown {
+  padding-left: 0;
+}
+
+.links {
+  padding-bottom: 1.5rem;
+}
+
+.links a {
+  color: var(--links-color);
+  font-family: Poppins-Medium;
+  font-weight: 500;
+  height: 1.5rem;
+  letter-spacing: 0px;
+  text-decoration: underline;
+}
+
+.title {
+  color: rgb(91, 109, 139);
+  font-family: Poppins-Bold;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.label {
+  color: var(--header);
+  font-family: Poppins-SemiBold;
+  font-size: 16px;
+  font-weight: 600;
+  height: 23px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: 65px;
+}
+
+.ui-dropdown-label.ui-inputtext {
+  color: var(--reverse);
+}
+
+/* DEFINE BUTTON PRIMARY */
+.btn-primary .ui-button {
+  margin: 0;
+  color: white;
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+.btn-primary .ui-button:enabled:hover, .btn-reverse .ui-button:enabled:active {
+  background-color: var(--primary-hover);
+  color: white;
+  border-color: var(--primary-hover);
+}
+.btn-primary .ui-button:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0px;
+  -webkit-box-shadow: 0 0 0 0.2em var(--primary-focus);
+  -moz-box-shadow: 0 0 0 0.2em var(--primary-focus);
+  box-shadow: 0 0 0 0.2em var(--primary-focus);
+}
+
+/* DEFINE BUTTON REVERSE */
+.btn-reverse .ui-button {
+  margin: 0;
+  color: var(--reverse);
+  background-color: white;
+  border: 1px solid var(--reverse);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+.btn-reverse .ui-button:enabled:hover, .btn-reverse .ui-button:enabled:active {
+  background-color: var(--reverse-hover);
+  color: white;
+  border-color: var(--reverse-hover);
+}
+.btn-reverse .ui-button:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0px;
+  -webkit-box-shadow: 0 0 0 0.2em var(--reverse-focus);
+  -moz-box-shadow: 0 0 0 0.2em var(--reverse-focus);
+  box-shadow: 0 0 0 0.2em var(--reverse-focus);
 }

@@ -4,10 +4,6 @@
       <form #f="ngForm">
           <div class="ui-g ui-fluid">
             <h5 class="ui-g-3">Editeur :</h5>
-            <!-- <p-dropdown class="ui-g-3 form-control" [options]="selectorEditors"
-              (onChange)="initStatistics()" [(ngModel)]="selectedEditor" name="selectedEditor"
-              placeholder="Select a media" [group]="true" showClear="true" required>
-            </p-dropdown> -->
             <p-dropdown class="ui-g-3 form-control" [options]="editors" optionLabel="name"
               (onChange)="initStatistics()" [(ngModel)]="selectedEditor" name="selectedEditor"
               placeholder="Select an editor" showClear="true" required>
