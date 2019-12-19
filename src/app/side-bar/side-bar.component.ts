@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
+  showGSLinks = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showOrHideLinks(showGSLinks) {
+    console.log(showGSLinks);
+    this.showGSLinks = showGSLinks;
   }
 
 }

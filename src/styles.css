@@ -12,7 +12,8 @@
   --reverse: #5b6d8b;
   --reverse-hover: #717e94;
   --reverse-focus: #5b6d8b;
-
+  --table-header: #5b6d8b;
+  --cards-background: #185684;
 }
 
 html {
@@ -26,7 +27,7 @@ body {
 .sidebar {
   width: 20rem;
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
@@ -40,16 +41,14 @@ body {
   border-radius: 0px;
   height: 6rem;
   width: 20rem;
-}
-
-.sidebar .logo img {
-  padding: 5px 58px 0px 40px;
+  padding: 24px 90px;
 }
 
 .nav-link {
   border-radius: 0px;
   padding: 12px 6px 12px 50px;
   color: var(--nav-link-color);
+  border-left: solid 6px white;
   font-family: Poppins-SemiBold;
   font-weight: 600;
   font-size: 0.875rem;
@@ -61,14 +60,36 @@ body {
 }
 
 .nav-pills .nav-link.active {
+  font-size: 1rem;
   color: var(--nav-link-color-active);
   background: var(--nav-link-background-active);
   border-radius: 3px 12px 12px 3px;
+  border-left: solid 6px var(--nav-link-color-active);
+}
+
+.accordion {
+  background-color: white;
+  cursor: pointer;
+  border-left: solid 6px white;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  text-align: left;
+  outline: none;
+  padding-left: 28px;
+}
+
+.panel > a {
+  color: rgb(60, 136, 181);
+  font-family: Roboto-Medium;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0px;
 }
 
 .header {
   position: absolute;
-  padding: 24px 374px 48px;
+  padding: 24px 0px 48px 374px;
   color: var(--header);
   font-family: Poppins-Bold;
   font-size: 2rem;
@@ -130,6 +151,29 @@ body {
   padding-left: 0;
 }
 
+.card-info .ui-card {
+  background-color: #4382f2;
+}
+
+.card-info .ui-card .ui-card-header {
+  color: white;
+  text-align: center;
+  font-family: Poppins-SemiBold;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
+
+.card-info .ui-card-body {
+  color: white;
+  text-align: center;
+  padding: 10px 0px;
+  font-family: Poppins-Bold;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0px;
+}
+
 .links {
   padding-bottom: 1.5rem;
 }
@@ -158,10 +202,7 @@ body {
   font-family: Poppins-SemiBold;
   font-size: 16px;
   font-weight: 600;
-  height: 23px;
   letter-spacing: 0px;
-  text-align: center;
-  width: 65px;
 }
 
 .ui-dropdown-label.ui-inputtext {
@@ -191,7 +232,8 @@ body {
 }
 
 /* DEFINE BUTTON REVERSE */
-.btn-reverse .ui-button {
+.btn-reverse.ui-button {
+  padding: 8px;
   margin: 0;
   color: var(--reverse);
   background-color: white;
@@ -210,4 +252,37 @@ body {
   -webkit-box-shadow: 0 0 0 0.2em var(--reverse-focus);
   -moz-box-shadow: 0 0 0 0.2em var(--reverse-focus);
   box-shadow: 0 0 0 0.2em var(--reverse-focus);
+}
+
+.no-padding-left {
+  padding-left: 0px !important;
+}
+
+body .ui-table .ui-table-thead > tr > th {
+  background-color: var(--table-header) !important;
+  color: white !important;
+}
+
+.ui-table-tbody {
+  text-align: center;
+}
+
+.btn-toggle {
+  cursor: pointer;
+  border-radius: 0px;
+  border: 1px solid rgb(67, 130, 242);
+  height: 2.5rem;
+  width: 8rem;
+  color: rgb(67, 130, 242);
+  background-color: white;
+  font-family: Poppins-SemiBold;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.btn-toggle.checked {
+  color: white;
+  background-color: rgb(67, 130, 242);
 }

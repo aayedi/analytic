@@ -6,11 +6,16 @@
       placeholder="Select an editor" [showClear]="true">
     </p-dropdown>
   </div>
-  <p-button class="btn-reverse ui-g-offset-5 ui-g-3" type="button" label="All errors" href=""></p-button>
+  <div class="ui-g-offset-6 ui-g-2">
+    <a class="btn-reverse ui-button" type="button" target="_blank"
+    href="http://analytics.sfeir.com/monitoring/index.html?mediaName=ALLERROR">All errors</a>
+  </div>
 </div>
 <div *ngIf="selectedEditor" class="ui-g">
-  <p-card *ngFor="let media of selectedEditor.medias" class="media ui-g-12 ui-lg-4">
-    <p-header>{{media.id}}</p-header>
-    {{media.name}}
-  </p-card>
+  <a *ngFor="let media of selectedEditor.medias" target="_blank" class="media ui-g-12 ui-lg-4" href="http://analytics.sfeir.com/monitoring/index.html?mediaName={{media.name}}">
+    <p-card >
+      <p-header>{{media.id}}</p-header>
+      {{media.name}}
+    </p-card>
+  </a>
 </div>

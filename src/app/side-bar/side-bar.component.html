@@ -1,11 +1,25 @@
 <div class="sidebar">
   <div class="logo">
-    <img width="100%" src="../assets/img/sfeirLogo.png"/>
+    <img width="100%" src="../assets/img/Sfeir-Gris.png"/>
   </div>
   <div class="flex-column nav-pills">
-    <a class="nav-link active">Monitoring</a>
-    <a class="nav-link">Google sheets</a>
-    <a class="nav-link">réedition logs/dsf</a>
-    <a class="nav-link">Statistiques</a>
+    <a [routerLink]="['/monitoring']" routerLinkActive="active" class="nav-link">Monitoring</a>
+    <div>
+      <button class="nav-link accordion" (click)="showOrHideLinks(!showGSLinks)" >
+        <i [ngClass]="showGSLinks ? 'pi pi-caret-down' : 'pi pi-caret-right'"></i>
+        Google sheets
+      </button>
+      <div *ngIf="showGSLinks" class="panel ui-g">
+        <a target="_blank" href="/admin/do?ACTION=updateConfig"
+        class="ui-g-offset-3 ui-g-8">Synchroniser le Google sheet
+          de config vers le datastore</a>
+        <a target="_blank" href="https://docs.google.com/spreadsheets/d/1GpTN6SLTyLGBiVp638xn0aqm9CGe8fyf2_T4hWHhYYA/edit"
+        class="ui-g-offset-3 ui-g-8">Google sheet config RECETTE</a>
+        <a target="_blank" href="https://docs.google.com/spreadsheets/d/1vzSN8X-rx7cU-WIGsMkJe-uX6EVFU9x7wFLg5Cwps4A/edit#gid=0"
+        class="ui-g-offset-3 ui-g-8">Google sheet config PROD</a>
+      </div>
+    </div>
+    <a [routerLink]="['/reedition']" routerLinkActive="active" class="nav-link">réedition logs/dsf</a>
+    <a [routerLink]="['/statistics']" routerLinkActive="active" class="nav-link">Statistiques</a>
   </div>
 </div>

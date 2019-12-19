@@ -22,6 +22,12 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpService } from './service/http.service';
 import { ShowEditorComponent } from './show-editor/show-editor.component';
+import { APP_ROUTES } from './app.routes';
+import { StatisticComponent } from './statistic/statistic.component';
+import { ReeditionComponent } from './reedition/reedition.component';
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 @NgModule({
   declarations: [
@@ -30,9 +36,12 @@ import { ShowEditorComponent } from './show-editor/show-editor.component';
     SideBarComponent,
     HeaderComponent,
     MonitoringComponent,
-    ShowEditorComponent
+    ShowEditorComponent,
+    StatisticComponent,
+    ReeditionComponent
   ],
   imports: [
+    APP_ROUTES,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -43,9 +52,12 @@ import { ShowEditorComponent } from './show-editor/show-editor.component';
     CardModule,
     DropdownModule,
     TableModule,
+    ToggleButtonModule,
     BrowserAnimationsModule,
     ProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    InputSwitchModule
   ],
   providers: [
     EditorService,
