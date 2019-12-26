@@ -13,6 +13,7 @@ import { HttpService } from '../service/http.service';
 export class StatisticComponent implements OnInit {
 
   maxVisit = 1000000000;
+  maxMedia = 30;
   editors: Editor[];
   selectedEditor: Editor;
   data: Statistic[] = [];

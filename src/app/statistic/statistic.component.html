@@ -38,7 +38,10 @@
           <ng-template pTemplate="body" let-statistic>
               <tr>
                   <td>{{statistic.monthName}}/{{statistic.year}}</td>
-                  <td [ngClass]="statistic.pages >= maxVisit ? 'alert' : ''">{{statistic.pages}}</td>
+                  <td [ngClass]="statistic.pages >= maxVisit ? 'alert' : ''">
+                    {{statistic.pages}}
+                    <i *ngIf="statistic.pages >= maxVisit" class="pi pi-exclamation-triangle"></i>
+                  </td>
               </tr>
           </ng-template>
         </p-table>
@@ -51,11 +54,12 @@
           {{ getAverage() }}
         </p-card>
         <br>
-        <p-card class="card-info">
+        <p-card class="card-info" [ngClass]="selectedEditor.medias.length >= maxMedia ? 'alert' : ''">
           <p-header>
             Nombre de DSH
           </p-header>
           {{selectedEditor.medias.length}}
+          <i *ngIf="selectedEditor.medias.length >= maxMedia" class="pi pi-exclamation-triangle"></i>
         </p-card>
       </div>
     </div>

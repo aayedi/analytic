@@ -12,7 +12,6 @@ import { MessageModule } from 'primeng/message';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
-import { EditionComponent } from './edition/edition.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditorService } from './service/editor-service.service';
 import { SideBarComponent } from './side-bar/side-bar.component';
@@ -28,17 +27,18 @@ import { ReeditionComponent } from './reedition/reedition.component';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { LinksComponent } from './links/links.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditionComponent,
     SideBarComponent,
     HeaderComponent,
     MonitoringComponent,
     ShowEditorComponent,
     StatisticComponent,
-    ReeditionComponent
+    ReeditionComponent,
+    LinksComponent
   ],
   imports: [
     APP_ROUTES,

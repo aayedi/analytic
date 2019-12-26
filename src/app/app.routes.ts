@@ -2,7 +2,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 // APP COMPONENTS
 import { MonitoringComponent } from './monitoring/monitoring.component';
-import { EditionComponent } from './edition/edition.component';
 import { StatisticComponent } from './statistic/statistic.component';
 import { ReeditionComponent } from './reedition/reedition.component';
 
