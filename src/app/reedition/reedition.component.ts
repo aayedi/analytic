@@ -12,7 +12,7 @@ import { JOBS_TYPES } from '../static/jobs-types';
 })
 export class ReeditionComponent implements OnInit {
 
-  logsChecked = true;
+  dsfChecked = true;
   editors: Editor[];
   jobTypes: any[];
   jobPeriods: any[];
@@ -36,7 +36,7 @@ export class ReeditionComponent implements OnInit {
   ngOnInit() { }
 
   handleClick(jobChecked: boolean) {
-    this.logsChecked = jobChecked;
+    this.dsfChecked = jobChecked;
     if (jobChecked) {
       this.jobTypes = JOBS_TYPES.logs;
       this.jobPeriods = JOBS_PERIODS.logs;

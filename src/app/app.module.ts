@@ -28,6 +28,7 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { LinksComponent } from './links/links.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { LinksComponent } from './links/links.component';
     ProgressSpinnerModule,
     HttpClientModule,
     ReactiveFormsModule,
-    InputSwitchModule
+    InputSwitchModule,
+    MultiSelectModule
   ],
   providers: [
     EditorService,

@@ -1,5 +1,5 @@
-<button class="btn-toggle" [class.checked]="logsChecked" (click)="handleClick(true)">LOGS</button>
-<button class="btn-toggle" [class.checked]="!logsChecked" (click)="handleClick(false)">DSF</button>
+<button class="btn-toggle" [class.checked]="dsfChecked" (click)="handleClick(true)">DSF</button>
+<button class="btn-toggle" [class.checked]="!dsfChecked" (click)="handleClick(false)">LOGS</button>
 <br><br>
 <form novalidate [formGroup]="reeditionForm" action="/admin/do?ACTION=reedition">
   <p-card>
@@ -11,10 +11,13 @@
         </p-dropdown>
       </div>
       <div class="ui-g-12 ui-g-offset-1 ui-lg-3">
-        <span class="label">Sélectionner le média</span>
-        <p-dropdown [options]="reeditionForm.controls.selectedEditor.value.medias" formControlName="selectedMedia" optionLabel="name"
-          placeholder="Select an editor" [showClear]="true" [disabled]="!reeditionForm.controls.selectedEditor.valid">
-        </p-dropdown>
+        <span class="label">Sélectionner le(s) média(s)</span>
+        <p-multiSelect [options]="reeditionForm.controls.selectedEditor.value.medias" formControlName="selectedMedia"
+          optionLabel="name" [disabled]="!reeditionForm.controls.selectedEditor.valid" defaultLabel="Sélectionner">
+          <ng-template let-media pTemplate="item">
+            {{media.value.id}}-{{media.value.name}}
+          </ng-template>
+        </p-multiSelect>
       </div>
       <div class="ui-g-12 ui-g-offset-1 ui-lg-3">
         <span class="label">Job Type</span>
@@ -34,11 +37,11 @@
         <p-dropdown [options]="jobPeriods" formControlName="selectedPeriod" placeholder="Select a period" [showClear]="true">
         </p-dropdown>
       </div>
-      <div *ngIf="!logsChecked" class="ui-g-12">
+      <div *ngIf="dsfChecked" class="ui-g-12">
         <span class="ui-g-4 label">Réédition « Officielle » pour l’ACPM ?</span>
         <p-inputSwitch class="ui-g-1" formControlName="official"></p-inputSwitch>
       </div>
-      <p-button type="submit" class="btn-primary ui-g-12 ui-g-offset-4 ui-lg-3" [label]="logsChecked ? 'Renvoyer les logs' : 'Renvoyer les dsf'" [disabled]="!reeditionForm.valid" (onClick)="applyFilter()"></p-button>
+      <p-button type="submit" class="btn-primary ui-g-12 ui-g-offset-4 ui-lg-3" [label]="dsfChecked ? 'Renvoyer les dsf' : 'Renvoyer les logs'" [disabled]="!reeditionForm.valid" (onClick)="applyFilter()"></p-button>
     </div>
   </p-card>
 </form>
