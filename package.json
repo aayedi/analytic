@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "gulp build && echo \"Moving front build to app package…\" && rm -Rf ../back/src/main/webapp && mv ./build ../back/src/main/webapp",
+    "build:prod": "ng build --prod",
+    "deploy": "echo \"Moving front build to app package…\" && rm -Rf ../back/src/main/webapp && mv ./build ../back/src/main/webapp",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
