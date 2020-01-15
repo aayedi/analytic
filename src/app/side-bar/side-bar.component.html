@@ -1,11 +1,19 @@
 <div class="sidebar">
   <div class="logo">
-    <img width="100%" src="../assets/img/sfeirLogo.png"/>
+    <img width="100%" src="../assets/img/Sfeir-Gris.png"/>
   </div>
   <div class="flex-column nav-pills">
-    <a class="nav-link active">Monitoring</a>
-    <a class="nav-link">Google sheets</a>
-    <a class="nav-link">réedition logs/dsf</a>
-    <a class="nav-link">Statistiques</a>
+    <a [routerLink]="['/monitoring']" routerLinkActive="active" class="nav-link">Monitoring</a>
+    <div>
+      <button class="nav-link accordion" (click)="showOrHideLinks(!showGSLinks)" >
+        <i [ngClass]="showGSLinks ? 'pi pi-caret-down' : 'pi pi-caret-right'"></i>
+        Google sheets
+      </button>
+      <div *ngIf="showGSLinks" class="panel ui-g">
+        <app-links [links]="links"></app-links>
+      </div>
+    </div>
+    <a [routerLink]="['/reedition']" routerLinkActive="active" class="nav-link">réedition logs/dsf</a>
+    <a [routerLink]="['/statistics']" routerLinkActive="active" class="nav-link">Statistiques</a>
   </div>
 </div>

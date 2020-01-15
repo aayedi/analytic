@@ -12,7 +12,6 @@ import { MessageModule } from 'primeng/message';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
-import { EditionComponent } from './edition/edition.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditorService } from './service/editor-service.service';
 import { SideBarComponent } from './side-bar/side-bar.component';
@@ -22,17 +21,28 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpService } from './service/http.service';
 import { ShowEditorComponent } from './show-editor/show-editor.component';
+import { APP_ROUTES } from './app.routes';
+import { StatisticComponent } from './statistic/statistic.component';
+import { ReeditionComponent } from './reedition/reedition.component';
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { LinksComponent } from './links/links.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditionComponent,
     SideBarComponent,
     HeaderComponent,
     MonitoringComponent,
-    ShowEditorComponent
+    ShowEditorComponent,
+    StatisticComponent,
+    ReeditionComponent,
+    LinksComponent
   ],
   imports: [
+    APP_ROUTES,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -43,9 +53,13 @@ import { ShowEditorComponent } from './show-editor/show-editor.component';
     CardModule,
     DropdownModule,
     TableModule,
+    ToggleButtonModule,
     BrowserAnimationsModule,
     ProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    InputSwitchModule,
+    MultiSelectModule
   ],
   providers: [
     EditorService,

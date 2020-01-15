@@ -1,40 +1,34 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { DateRange } from '../models/date-range';
+import { Component, OnInit, Input } from '@angular/core';
 import { Editor } from '../models/editor';
 import { EditorService } from '../service/editor-service.service';
-import { EditorSelectorItem } from '../models/editor-selector';
 import { Statistic } from '../models/statistic';
+import { DateRange } from '../models/date-range';
+import { HttpService } from '../service/http.service';
 
 @Component({
-  selector: 'app-edition',
-  templateUrl: './edition.component.html',
-  styleUrls: ['./edition.component.css']
+  selector: 'app-statistic',
+  templateUrl: './statistic.component.html',
+  styleUrls: ['./statistic.component.css']
 })
-export class EditionComponent implements OnInit {
+export class StatisticComponent implements OnInit {
 
   maxVisit = 1000000000;
-  selectorEditors: EditorSelectorItem[];
-  selectedEditor: Editor;
+  maxMedia = 30;
   editors: Editor[];
+  selectedEditor: Editor;
   data: Statistic[] = [];
-
   @Input()
   fromDate: Date;
   @Input()
   toDate: Date;
   msgs = [];
 
-  constructor(private editorService: EditorService) {
+  constructor(private editorService: EditorService, private httpService: HttpService) {
     this.initDataSubscription();
-  }
-
-  ngOnInit() {
-
   }
 
   initDataSubscription(): void {
     this.editors = this.editorService.getEditors();
-    this.selectorEditors = this.editorService.getSelectorEditors();
   }
 
   applyFilter() {
@@ -55,6 +49,18 @@ export class EditionComponent implements OnInit {
       average += stat.pages;
     }
     return Math.trunc(average / this.data.length);
+  }
+
+  aggregateByEditor() {
+    this.httpService.aggregateByEditor(this.selectedEditor.name)
+    .subscribe(
+      data => {
+        console.log(data);
+      }
+    );
+  }
+
+  ngOnInit() {
   }
 
 }

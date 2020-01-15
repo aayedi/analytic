@@ -1,0 +1,47 @@
+<button class="btn-toggle" [class.checked]="dsfChecked" (click)="handleClick(true)">DSF</button>
+<button class="btn-toggle" [class.checked]="!dsfChecked" (click)="handleClick(false)">LOGS</button>
+<br><br>
+<form novalidate [formGroup]="reeditionForm" action="/admin/do?ACTION=reedition">
+  <p-card>
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-lg-3">
+        <span class="label">Sélectionner l'éditeur</span>
+        <p-dropdown [options]="editors" formControlName="selectedEditor" optionLabel="name"
+          placeholder="Select an editor" [showClear]="true">
+        </p-dropdown>
+      </div>
+      <div class="ui-g-12 ui-g-offset-1 ui-lg-3">
+        <span class="label">Sélectionner le(s) média(s)</span>
+        <p-multiSelect [options]="reeditionForm.controls.selectedEditor.value.medias" formControlName="selectedMedia"
+          optionLabel="name" [disabled]="!reeditionForm.controls.selectedEditor.valid" defaultLabel="Sélectionner">
+          <ng-template let-media pTemplate="item">
+            {{media.value.id}}-{{media.value.name}}
+          </ng-template>
+        </p-multiSelect>
+      </div>
+      <div class="ui-g-12 ui-g-offset-1 ui-lg-3">
+        <span class="label">Job Type</span>
+        <p-dropdown [options]="jobTypes" formControlName="selectedJob" placeholder="Select a job type" [showClear]="true">
+        </p-dropdown>
+      </div>
+      <div class="ui-g-12 ui-lg-3">
+        <span class="label">Période(s) du</span>
+        <p-calendar formControlName="fromDate" [showIcon]="true"></p-calendar>
+      </div>
+      <div class="ui-g-12 ui-g-offset-1 ui-lg-3">
+        <span class="label">au</span>
+        <p-calendar formControlName="toDate" [showIcon]="true"></p-calendar>
+      </div>
+      <div class="ui-g-12 ui-g-offset-1 ui-lg-3">
+        <span class="label">Réinitialier la période à l'étape</span>
+        <p-dropdown [options]="jobPeriods" formControlName="selectedPeriod" placeholder="Select a period" [showClear]="true">
+        </p-dropdown>
+      </div>
+      <div *ngIf="dsfChecked" class="ui-g-12">
+        <span class="ui-g-4 label">Réédition « Officielle » pour l’ACPM ?</span>
+        <p-inputSwitch class="ui-g-1" formControlName="official"></p-inputSwitch>
+      </div>
+      <p-button type="submit" class="btn-primary ui-g-12 ui-g-offset-4 ui-lg-3" [label]="dsfChecked ? 'Renvoyer les dsf' : 'Renvoyer les logs'" [disabled]="!reeditionForm.valid" (onClick)="applyFilter()"></p-button>
+    </div>
+  </p-card>
+</form>

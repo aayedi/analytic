@@ -1,0 +1,79 @@
+<form #f="ngForm">
+  <div class="ui-g ui-fluid">
+    <span class="ui-g-12 ui-lg-2 label">Editeur:</span>
+    <p-dropdown class="ui-g-6 ui-lg-3 form-control" [options]="editors" optionLabel="name"
+      [(ngModel)]="selectedEditor" name="selectedEditor"
+      placeholder="Select an editor" showClear="true" required>
+    </p-dropdown>
+  </div>
+
+  <p-card class="job">
+    <p-header>
+      NOMBRE DE PAGES VISITEES PAR MOIS
+    </p-header>
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-10">
+        <div class="ui-g-12 ui-lg-5">
+          <span class="label">Période(s) du</span>
+          <div class="ui-g">
+            <p-calendar class="ui-g-12 no-padding-left form-control" [(ngModel)]="fromDate" name="fromDate" [showIcon]="true" required></p-calendar>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-lg-7">
+          <span class="label">au</span>
+          <div class="ui-g">
+            <p-calendar class="ui-g-12 ui-lg-8 no-padding-left form-control" [(ngModel)]="toDate" name="toDate" [showIcon]="true" required></p-calendar>
+            <p-button type="submit" class="btn-primary ui-g-12 ui-lg-4" label="APPLIQUER" [disabled]="f.invalid" (onClick)="applyFilter()"></p-button>
+          </div>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-lg-8">
+        <p-table *ngIf="selectedEditor && data.length > 0" [value]="data">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>Mois</th>
+                  <th>Nombre de pages visitées</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-statistic>
+              <tr>
+                  <td>{{statistic.monthName}}/{{statistic.year}}</td>
+                  <td [ngClass]="statistic.pages >= maxVisit ? 'alert' : ''">
+                    {{statistic.pages}}
+                    <i *ngIf="statistic.pages >= maxVisit" class="pi pi-exclamation-triangle"></i>
+                  </td>
+              </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      <div class="ui-g-12 ui-lg-4" *ngIf="selectedEditor && data.length > 0">
+        <p-card class="card-info">
+          <p-header>
+            Moyenne pages visitées
+          </p-header>
+          {{ getAverage() }}
+        </p-card>
+        <br>
+        <p-card class="card-info" [ngClass]="selectedEditor.medias.length >= maxMedia ? 'alert' : ''">
+          <p-header>
+            Nombre de DSH
+          </p-header>
+          {{selectedEditor.medias.length}}
+          <i *ngIf="selectedEditor.medias.length >= maxMedia" class="pi pi-exclamation-triangle"></i>
+        </p-card>
+      </div>
+    </div>
+  </p-card>
+  <br>
+  <div  *ngIf="selectedEditor">
+    <span class="title">MONITORING</span>
+    <div *ngIf="selectedEditor" class="ui-g">
+      <a *ngFor="let media of selectedEditor.medias" target="_blank" class="media ui-g-12 ui-lg-4" href="http://analytics.sfeir.com/#/mediaName/{{media.name}}">
+        <p-card >
+          <p-header>{{media.id}}</p-header>
+          {{media.name}}
+        </p-card>
+      </a>
+    </div>
+  </div>
+</form>
